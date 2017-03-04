@@ -1,0 +1,54 @@
+var webPage = require('webpage');
+var page = webPage.create()
+var system=require('system'),word;
+console.log('input the key words');
+console.log(system.args[1]);
+
+//page.onConsoleMessage = function(msg) {
+//  console.log('The inner msg: ' + msg + '|');
+//};
+if (system.args.length > 2 ||system.args.length < 1){
+	console.log("Wrong number key words");
+	console.log(keywords);
+	phantom.exit();
+}
+else{
+	word = system.args[1];
+	console.log(word);
+	page.open("http://www.baidu.com",function(status){
+		if(status !='success'){
+			console.log(status);
+			console.log('Unable to access');
+			phantom.exit();
+		}
+		//page.includeJs('http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js',
+		//function(){
+    page.evaluate(function(word){
+				//$('#kw').attr('value',value = word);
+				document.querySelector('input[name = wd]').value = word;
+				document.querySelector('form[name = f]').submit();
+        //设置延时以达到先搜索在抓取的
+        //var result = document.querySelector('div[id = content_left]')
+				//var clickevent = document.createEvent('HTMLEvents');
+				//clickevent.initEvent('click',false,true)
+				//document.getElementById('su').dispatchEvent(clickevent);
+				//$('#su').onclick();
+			},word)
+      window.setTimeout(function(){
+			page.render("task1.png");
+      console.log(page.evaluate(function(){
+  				//$('#kw').attr('value',value = word);
+          var mss = document.querySelectorAll('a');
+          var len = mss.length;
+          console.log(len)
+          var name = ""
+          for (var i=0;i < len;i++){
+            name = name+"\n"+"tittle:"+mss[i].innerText+"\n"+"href:"+mss[i].href
+          }
+          return name;}))
+			phantom.exit();//stop here
+    },500)
+		//})//includeJS end
+		console.log(window.location.href)
+	});
+}
