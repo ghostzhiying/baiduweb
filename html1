@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<h1>这是标题</h1>
+<div id = "href" name = "alalalala">
+  <a href "www.baidu.com" id = "href_1" target= "blank">这不是链接1</a>
+  <a href "www.baidu.com" id = "href_1" target= "blank">这不是链接2</a>
+</div>
+<div>
+  <a href "www.baidu.com" id = "href_1" target= "blank">这不是链接3</a>
+</div>
+<div>
+  <a href "www.baidu.com" id = "href_1" target= "blank">这不是链接4</a>
+</div>
+<body>
+  <div>
+    <h2>文字</h2>
+    <p>这是一个很长很长很长很长的段落这是一个很长很长很长很长的段落这是一个很长很长很长很长的段落这是一个很长很长很长很长的段落
+      这是一个很长很长很长很长的段落这是一个很长很长很长很长的段落这是一个很长很长很长很长的段落
+      这是一个很长很长很长很长的段落这是一个很长很长很长很长的段落这是一个很长很长很长很长的段落
+      <a href = "http:\\www.baidu.com" target="_blank">这是一个很长很长很长很长的段落</a>这是一个很长很长很长很长的段落这是一个很长很长很长很长的段落
+    </p>
+    <p>这是一个很长很长很长很长的段落这是一个很长很长很长很长的段落</p>
+    <h3>二级标题</h3>
+    <p>这是一个很长很长很长很长的段落这是一个很长很长很长很长的段落这是一个很长很长很长很长的段落这是一个很长很长很长很长的段落
+      这是一个很长很长很长很长的段落这是一个很长很长很长很长的段落这是一个很长很长很长很长的段落
+      这是一个很长很长很长很长的段落这是一个很长很长很长很长的段落这是一个很长很长很长很长的段落</p>
+      <ul>
+        <li>这是一个很长很长很长很长的段落</li>
+        <li>这是一个很长很长很长很长的段落</li>
+      </ul>
+  </div>
+  <div>
+    <h2>表格</h2>
+  <table border = "2" bordercolor = "gray" cellspacing="0" cellpadding="5">
+    <tr>
+      <td>row1,cell1</td>
+      <td>row2,cell2</td>
+      <td>row2,cell2</td>
+    </tr>
+    <tr>
+      <td>总计</td>
+        <td colspan="2">1</td>
+    </tr>
+  </table>
+  </div>
+  <div>
+    <h2>图片</h2>
+    <p>这是图片</p>
+    <img src = "C:\Users\Administrator\Pictures\2015052434428666.jpg" height="512" weight="512"></img>
+    <p>这是图片</p>
+    <img src = "C:\Users\Administrator\Pictures\2015052434428666.jpg" height="512" weight="512"></img>
+    <p>这是图片</p>
+    <img src = "C:\Users\Administrator\Pictures\2015052434428666.jpg" height="512" weight="512"></img>
+    <p>这是图片</p>
+    <img src = "C:\Users\Administrator\Pictures\2015052434428666.jpg" height="512" weight="512"></img>
+  </div>
+  <div class= "container">
+    <h3>这是一个侧边栏</h3>
+    <p>username:
+    <input type= "text" placeholder="input your name" name = "username"></input>
+  </p>
+    <p>password
+    <input type= "text" placeholder="input your password" name = "userpassword"></input>
+    repeat:
+    <input type= "text" placeholder="repeat your password" name = "userpassword"></input>
+  </p>
+<form id = "mss" name = "submit">
+  <p>性别：
+  <input type = "radio" name="sex" value="male" checked>male
+  <input type = "radio" name="sex" value="female">female
+  交通工具：
+  <input type="checkbox" name="vehicle" value="Bike">I have a bike
+  <input type="checkbox" name="vehicle" value="car">I have a car
+  <p>select your city
+    <select>
+      <option>Beijing</option>
+      <option>Shanghai</option>
+    </select>
+  </p>
+  <textarea>
+    #line{
+      line-color;
+      red;line-width:2;
+    }
+  </textarea>
+<input type="submit">
+</form>
+  </div>
+
+</body>
+</html>
