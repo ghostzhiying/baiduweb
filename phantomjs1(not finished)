@@ -23,31 +23,44 @@ else{
 		}
 		//page.includeJs('http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js',
 		//function(){
-    page.evaluate(function(word){
-				//$('#kw').attr('value',value = word);
-				document.querySelector('input[name = wd]').value = word;
-				document.querySelector('form[name = f]').submit();
-        //设置延时以达到先搜索在抓取的
-        //var result = document.querySelector('div[id = content_left]')
-				//var clickevent = document.createEvent('HTMLEvents');
-				//clickevent.initEvent('click',false,true)
-				//document.getElementById('su').dispatchEvent(clickevent);
-				//$('#su').onclick();
-			},word)
-      window.setTimeout(function(){
-			page.render("task1.png");
-      console.log(page.evaluate(function(){
-  				//$('#kw').attr('value',value = word);
-          var mss = document.querySelectorAll('a');
-          var len = mss.length;
-          console.log(len)
-          var name = ""
-          for (var i=0;i < len;i++){
-            name = name+"\n"+"tittle:"+mss[i].innerText+"\n"+"href:"+mss[i].href
-          }
-          return name;}))
-			phantom.exit();//stop here
-    },500)
+  page.evaluate(function(word){
+		//$('#kw').attr('value',value = word);
+		document.querySelector('input[name = wd]').value = word;
+		document.querySelector('form[name = f]').submit();
+    //设置延时以达到先搜索在抓取的
+    //var result = document.querySelector('div[id = content_left]')
+		//var clickevent = document.createEvent('HTMLEvents');
+		//clickevent.initEvent('click',false,true)
+		//document.getElementById('su').dispatchEvent(clickevent);
+		//$('#su').onclick();
+		},word)
+    window.setTimeout(function(){
+		page.render("task1.png");
+    console.log(page.evaluate(function(word){
+			//$('#kw').attr('value',value = word);
+      var mss = document.querySelectorAll('div.result.c-container');
+      var len = mss.length;
+      var datalist = []
+			var name = {}
+      for (var i=0;i < len;i++){
+				try{
+					picsrc = mss[i].querySelectorAll('img.c-img.c-img6')[0].currentSrc;
+				}
+				catch(err){
+					picsrc = "";
+				}
+        name = {
+					tittle:mss[i].querySelectorAll('a')[0].innerText,
+					info:mss[i].querySelectorAll('.c-abstract')[0].innerText,
+					link:mss[i].querySelectorAll('a.c-showurl')[0].href,
+					// pic:mss[i].querySelectorAll('img.c-img.c-img6')[0].currentSrc
+					pic:picsrc
+				}
+			datalist.push(name);
+		}
+		return JSON.stringify(datalist);},word))
+		phantom.exit();//stop here
+  },500)
 		//})//includeJS end
 		console.log(window.location.href)
 	});
